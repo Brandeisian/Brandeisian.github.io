@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adam Gould - Computer Science and Near Eastern & Judaic Studies student bridging technology and community impact">
+    <title>Adam Gould | Bridging Tech & Community</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1e3a5f;
+            --slate-blue: #2c5282;
+            --terracotta: #c77248;
+            --muted-gold: #d4a574;
+            --warm-white: #faf8f5;
+            --light-grey: #e8e4df;
+            --accent-cyan: #5eb3c5;
+            --text-dark: #2d3748;
+            --text-medium: #4a5568;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--warm-white);
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        /* Header - Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--slate-blue) 100%);
+            color: var(--warm-white);
+            padding: 5rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted-gold);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .bridge-metaphor {
+            display: inline-block;
+            padding: 0 0.5rem;
+            background: linear-gradient(90deg, var(--terracotta) 0%, var(--muted-gold) 100%);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .contact-quick {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.95rem;
+        }
+
+        .contact-quick a {
+            color: var(--warm-white);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            transition: color 0.3s;
+            opacity: 0.9;
+        }
+
+        .contact-quick a:hover {
+            color: var(--muted-gold);
+            opacity: 1;
+        }
+
+        .cta-buttons {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .cta-primary {
+            background: var(--terracotta);
+            color: white;
+            box-shadow: 0 4px 12px rgba(199,114,72,0.3);
+        }
+
+        .cta-primary:hover {
+            background: #b5673e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(199,114,72,0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--warm-white);
+            border: 2px solid var(--warm-white);
+        }
+
+        .cta-secondary:hover {
+            background: var(--warm-white);
+            color: var(--navy);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(30, 58, 95, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--warm-white);
+            text-decoration: none;
+            padding: 0.6rem 1.3rem;
+            transition: all 0.3s;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            background: var(--terracotta);
+            color: white;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        /* Section Headers with Bridge Motif */
+        h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--terracotta) 0%, var(--muted-gold) 100%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-intro {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+            border-left: 6px solid var(--terracotta);
+        }
+
+        .about-intro p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-medium);
+        }
+
+        .about-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-intro strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Skills Matrix */
+        .skills-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--muted-gold);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 0.4rem 0;
+            color: var(--text-medium);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--terracotta);
+            font-weight: bold;
+        }
+
+        /* Experience Cards */
+        .experience-card {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 6px solid var(--slate-blue);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(212,165,116,0.1) 0%, transparent 70%);
+            border-radius: 0 12px 0 0;
+        }
+
+        .experience-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .experience-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-org {
+            color: var(--terracotta);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-top: 0.5rem;
+        }
+
+        .experience-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .experience-card ul {
+            margin-left: 0;
+            list-style: none;
+        }
+
+        .experience-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .experience-card li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--muted-gold);
+            font-size: 0.8rem;
+        }
+
+        /* Education Section */
+        .education-highlight {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--slate-blue) 100%);
+            color: var(--warm-white);
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(30,58,95,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .education-highlight h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .education-subtitle {
+            font-size: 1.2rem;
+            color: var(--muted-gold);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .education-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .education-detail {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .education-detail strong {
+            display: block;
+            color: var(--muted-gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-detail span {
+            font-size: 1.1rem;
+        }
+
+        /* Campus Involvement */
+        .campus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .campus-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-top: 3px solid var(--accent-cyan);
+            transition: all 0.3s;
+        }
+
+        .campus-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .campus-card h4 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .campus-card p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .contact-box p {
+            font-size: 1.15rem;
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-method a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.05rem;
+        }
+
+        .contact-method a:hover {
+            color: var(--terracotta);
+        }
+
+        .contact-method span {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--warm-white);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about-intro,
+            .experience-card,
+            .education-highlight {
+                padding: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .education-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-content">
+            <div class="hero-subtitle">Software & Campaigns</div>
+            <h1>Adam Gould</h1>
+            <p class="hero-tagline">
+                <span class="bridge-metaphor">Bridging technology and community impact</span> through thoughtful code, strategic operations, and interdisciplinary thinking.
+            </p>
+            <div class="cta-buttons">
+                <a href="#experience" class="cta-primary">View My Work</a>
+                <a href="#contact" class="cta-secondary">Let's Connect</a>
+            </div>
+            <div class="contact-quick">
+                <a href="mailto:Adam@KohlGould.com">Adam@KohlGould.com</a>
+                <a href="tel:617-909-6856">617-909-6856</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-intro">
+                <p>I'm a Computer Science and Near Eastern & Judaic Studies student at Brandeis University, driven by a belief that <strong>technology should serve communities</strong>.</p>
+                
+                <p>My organizing roots go back to high school, where I led climate justice campaigns, coordinated phone banks for civil rights initiatives, and helped build youth political movements in Boston. That early work taught me that <strong>movements need more than passion—they need infrastructure, data, and digital tools that work</strong>.</p>
+                
+                <p>Since then, my path has taken me from redesigning websites for academic institutes to drafting memos for presidential campaigns, from managing data systems for nonprofits to supervising kosher dining operations on campus. This diverse experience has taught me that the most meaningful solutions emerge when we <strong>bridge technical expertise with deep community understanding</strong>.</p>
+                
+                <p>Whether I'm writing code, coordinating political operations, or leading campus clubs, I approach every challenge with the same commitment: <strong>build tools and systems that create real impact for real people</strong>.</p>
+            </div>
+
+            <div class="skills-matrix">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Technical Foundations</h3>
+                    <ul>
+                        <li>Java & Python Development</li>
+                        <li>Web Design & Deployment</li>
+                        <li>Data Systems Management</li>
+                        <li>Software Evaluation</li>
+                        <li>Digital Operations</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🤝</div>
+                    <h3>Community & Strategy</h3>
+                    <ul>
+                        <li>Project Coordination</li>
+                        <li>Stakeholder Relations</li>
+                        <li>Political Operations</li>
+                        <li>Event Management</li>
+                        <li>Nonprofit Leadership</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🌉</div>
+                    <h3>Bridging Disciplines</h3>
+                    <ul>
+                        <li>CS + Humanities Thinking</li>
+                        <li>Tech Ethics & Impact</li>
+                        <li>Digital Brand Development</li>
+                        <li>Cross-Functional Teams</li>
+                        <li>Solutions-Focused Design</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-title">Digital Operations Intern</div>
+                    <div class="experience-org">Princeton Institute for Hasidic Thought</div>
+                    <div class="experience-meta">
+                        <span>📍 Princeton, NJ</span>
+                        <span>📅 May 2025 – September 2025</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Redesigned and deployed the organization's website, improving usability and visual design to better serve academic and community audiences</li>
+                    <li>Contributed to digital brand identity development by providing design and technical input on visual style, layout, and online presence</li>
+                    <li>Coordinated logistics and provided on-site support for an intensive retreat serving the institute's translation fellowship</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-title">Political Assistant</div>
+                    <div class="experience-org">Harris for President - New Hampshire Democratic Coordinated Campaign</div>
+                    <div class="experience-meta">
+                        <span>📍 Manchester, NH</span>
+                        <span>📅 May 2024 – November 2024</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Drafted memos for President Biden, V.P. Harris, senators, and other key surrogates for New Hampshire travel, ensuring accurate information and strategic messaging</li>
+                    <li>Planned and coordinated high-stakes events, leading on-site teams through complex logistical challenges</li>
+                    <li>Cultivated and maintained relationships with hundreds of elected officials and key party activists across the state</li>
+                    <li>Managed the volunteer-exempt mail program and ensured compliance with federal campaign regulations</li>
+                    <li>Worked closely with the data team to ensure accurate reporting and strategic decision-making</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-title">Special Projects Coordinator</div>
+                    <div class="experience-org">Central Square Business Improvement District</div>
+                    <div class="experience-meta">
+                        <span>📍 Cambridge, MA</span>
+                        <span>📅 March 2023 – August 2023</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Managed and optimized office technology systems, troubleshooting software and hardware issues to ensure smooth digital workflows for staff</li>
+                    <li>Developed and strengthened relationships with local small businesses, serving as a liaison between business owners and the BID to support community engagement and economic growth</li>
+                    <li>Provided on-site technical support to ensure smooth execution of community events</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-title">Software Operations Associate</div>
+                    <div class="experience-org">March On</div>
+                    <div class="experience-meta">
+                        <span>📍 Remote</span>
+                        <span>📅 June 2021 – September 2021</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Evaluated and recommended software solutions to improve operational efficiency and digital collaboration across the nonprofit organization</li>
+                    <li>Managed data systems, ensuring accuracy and accessibility for staff needs while maintaining data integrity</li>
+                    <li>Provided technical and logistical support for the planning and execution of a large-scale advocacy event</li>
+                    <li>Streamlined administrative workflows through the strategic use of cloud-based productivity and project management tools</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-highlight">
+                <h3>Bachelor of Arts</h3>
+                <div class="education-subtitle">Double Major: Computer Science & Near Eastern and Judaic Studies</div>
+                <div class="education-details">
+                    <div class="education-detail">
+                        <strong>University</strong>
+                        <span>Brandeis University</span>
+                    </div>
+                    <div class="education-detail">
+                        <strong>Location</strong>
+                        <span>Waltham, MA</span>
+                    </div>
+                    <div class="education-detail">
+                        <strong>Graduation</strong>
+                        <span>May 2027</span>
+                    </div>
+                    <div class="education-detail">
+                        <strong>GPA</strong>
+                        <span>3.612</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 1.5rem; margin-top: 2rem;">Campus Leadership & Involvement</h3>
+            <div class="campus-grid">
+                <div class="campus-card">
+                    <h4>Vice President</h4>
+                    <p>Brandeis Orthodox Organization — Leading programming, community building, and advocacy for Orthodox Jewish students on campus</p>
+                </div>
+                <div class="campus-card">
+                    <h4>Dining Hall Supervisor</h4>
+                    <p>Ensuring strict compliance with Kosher Law and dietary standards while managing daily operations</p>
+                </div>
+                <div class="campus-card">
+                    <h4>Art Studio Monitor</h4>
+                    <p>Providing technical assistance and safety oversight for students using carpentry and fabrication equipment</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <div class="contact-box">
+                <p>I'm always interested in conversations about technology, community impact, and opportunities to collaborate on meaningful projects. Whether you're looking for technical expertise, strategic thinking, or someone who bridges both worlds — let's talk.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <span>Email</span>
+                        <a href="mailto:Adam@KohlGould.com">Adam@KohlGould.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <span>Phone</span>
+                        <a href="tel:617-909-6856">617-909-6856</a>
+                    </div>
+                </div>
+
+                <div class="cta-buttons" style="justify-content: center; margin-top: 2.5rem;">
+                    <a href="mailto:Adam@KohlGould.com" class="cta-primary">Send Me a Message</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Adam Gould. Bridging technology and community, one project at a time.</p>
+        <p style="margin-top: 1rem; opacity: 0.7;">Cambridge, MA & New York, NY</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
