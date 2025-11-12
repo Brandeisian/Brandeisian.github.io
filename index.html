@@ -3,830 +3,1788 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Adam Gould - Computer Science and Near Eastern & Judaic Studies student bridging technology and community impact">
-    <title>Adam Gould | Building Tech for Community</title>
+    <meta name="description" content="Adam Gould - Computer Science Student at Brandeis University. Digital Operations, Software Development, and Political Campaign Experience.">
+    <title>Adam Gould - Computer Science Student &amp; Software Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --navy: #1e3a5f;
-            --slate-blue: #2c5282;
-            --terracotta: #c77248;
-            --muted-gold: #d4a574;
-            --warm-white: #faf8f5;
-            --light-grey: #e8e4df;
-            --accent-cyan: #5eb3c5;
-            --text-dark: #2d3748;
-            --text-medium: #4a5568;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
-            background-color: var(--warm-white);
-        }
-
-        /* Typography */
-        h1, h2, h3 {
-            font-family: 'Merriweather', Georgia, serif;
-            font-weight: 900;
-            line-height: 1.2;
-        }
-
-        /* Header - Hero Section */
-        header {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--slate-blue) 100%);
-            color: var(--warm-white);
-            padding: 5rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 40%);
-            opacity: 0.6;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-subtitle {
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--muted-gold);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero-tagline {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            font-weight: 400;
-        }
-
-        .bridge-metaphor {
-            display: inline-block;
-            padding: 0 0.5rem;
-            background: linear-gradient(90deg, var(--terracotta) 0%, var(--muted-gold) 100%);
-            color: white;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .contact-quick {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 0.95rem;
-        }
-
-        .contact-quick a {
-            color: var(--warm-white);
-            text-decoration: none;
-            margin-right: 1.5rem;
-            transition: color 0.3s;
-            opacity: 0.9;
-        }
-
-        .contact-quick a:hover {
-            color: var(--muted-gold);
-            opacity: 1;
-        }
-
-        .cta-buttons {
-            margin-top: 2.5rem;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .cta-primary, .cta-secondary {
-            padding: 0.9rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            font-size: 1rem;
-        }
-
-        .cta-primary {
-            background: var(--terracotta);
-            color: white;
-            box-shadow: 0 4px 12px rgba(199,114,72,0.3);
-        }
-
-        .cta-primary:hover {
-            background: #b5673e;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(199,114,72,0.4);
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: var(--warm-white);
-            border: 2px solid var(--warm-white);
-        }
-
-        .cta-secondary:hover {
-            background: var(--warm-white);
-            color: var(--navy);
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(30, 58, 95, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        nav a {
-            color: var(--warm-white);
-            text-decoration: none;
-            padding: 0.6rem 1.3rem;
-            transition: all 0.3s;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
-            background: var(--terracotta);
-            color: white;
-        }
-
-        /* Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        section {
-            margin-bottom: 5rem;
-        }
-
-        /* Section Headers with Bridge Motif */
-        h2 {
-            font-size: 2.5rem;
-            color: var(--navy);
-            margin-bottom: 2rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--terracotta) 0%, var(--muted-gold) 100%);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-intro {
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 3rem;
-            border-left: 6px solid var(--terracotta);
-        }
-
-        .about-intro p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: var(--text-medium);
-        }
-
-        .about-intro p:last-child {
-            margin-bottom: 0;
-        }
-
-        .about-intro strong {
-            color: var(--navy);
-            font-weight: 600;
-        }
-
-        /* Skills Matrix */
-        .skills-matrix {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--muted-gold);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .skill-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.25rem;
-            color: var(--navy);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .skill-card ul {
-            list-style: none;
-        }
-
-        .skill-card li {
-            padding: 0.4rem 0;
-            color: var(--text-medium);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .skill-card li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--terracotta);
-            font-weight: bold;
-        }
-
-        /* Experience Cards */
-        .experience-card {
-            background: white;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            border-left: 6px solid var(--slate-blue);
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(212,165,116,0.1) 0%, transparent 70%);
-            border-radius: 0 12px 0 0;
-        }
-
-        .experience-card:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .experience-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1.5rem;
-            color: var(--navy);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-org {
-            color: var(--terracotta);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-meta {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            font-size: 0.9rem;
-            color: var(--text-medium);
-            margin-top: 0.5rem;
-        }
-
-        .experience-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .experience-card ul {
-            margin-left: 0;
-            list-style: none;
-        }
-
-        .experience-card li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.8rem;
-            position: relative;
-            color: var(--text-medium);
-            line-height: 1.7;
-        }
-
-        .experience-card li::before {
-            content: '◆';
-            position: absolute;
-            left: 0;
-            color: var(--muted-gold);
-            font-size: 0.8rem;
-        }
-
-        /* Education Section */
-        .education-highlight {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--slate-blue) 100%);
-            color: var(--warm-white);
-            padding: 3rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 24px rgba(30,58,95,0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .education-highlight::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-        }
-
-        .education-highlight h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .education-subtitle {
-            font-size: 1.2rem;
-            color: var(--muted-gold);
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        .education-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            position: relative;
-        }
-
-        .education-detail {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-
-        .education-detail strong {
-            display: block;
-            color: var(--muted-gold);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.3rem;
-        }
-
-        .education-detail span {
-            font-size: 1.1rem;
-        }
-
-        /* Campus Involvement */
-        .campus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .campus-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            border-top: 3px solid var(--accent-cyan);
-            transition: all 0.3s;
-        }
-
-        .campus-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
-
-        .campus-card h4 {
-            color: var(--navy);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .campus-card p {
-            color: var(--text-medium);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact-box {
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .contact-box p {
-            font-size: 1.15rem;
-            color: var(--text-medium);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .contact-methods {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .contact-method {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-method a {
-            color: var(--navy);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-            font-size: 1.05rem;
-        }
-
-        .contact-method a:hover {
-            color: var(--terracotta);
-        }
-
-        .contact-method span {
-            font-size: 0.9rem;
-            color: var(--text-medium);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--navy);
-            color: var(--warm-white);
-            text-align: center;
-            padding: 3rem 2rem;
-            margin-top: 5rem;
-        }
-
-        footer p {
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-tagline {
-                font-size: 1.2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .about-intro,
-            .experience-card,
-            .education-highlight {
-                padding: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .cta-primary,
-            .cta-secondary {
-                width: 100%;
-                text-align: center;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .education-details {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
+:root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* RGB versions for opacity control */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  /* Background color tokens (Light Mode) */
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+  --color-bg-6: rgba(249, 115, 22, 0.08);
+  --color-bg-7: rgba(236, 72, 153, 0.08);
+  --color-bg-8: rgba(6, 182, 212, 0.08);
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  /* Custom colors for portfolio */
+  --primary-dark: #1a1f36;
+  --primary-blue: #3b82f6;
+  --light-blue: #60a5fa;
+  --light-gray: #f3f4f6;
+  --medium-gray: #9ca3af;
+  --text-dark: #1f2937;
+
+  /* Typography */
+  --font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 48px;
+  --font-size-5xl: 60px;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-120: 120px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 500ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-btn-primary-text: var(--color-slate-900);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: var(--line-height-normal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all var(--duration-normal) var(--ease-standard);
+  padding: var(--space-20) 0;
+}
+
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-16) 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav.scrolled {
+    background: rgba(31, 33, 33, 0.95);
+  }
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-32);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.nav-menu {
+  display: flex;
+  gap: var(--space-32);
+  list-style: none;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  transition: color var(--duration-fast) var(--ease-standard);
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-primary);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-8);
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--color-text);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #2d3555 100%);
+  color: var(--color-white);
+  overflow: hidden;
+  padding: var(--space-32);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s var(--ease-standard);
+}
+
+.hero-name {
+  font-size: clamp(48px, 8vw, 80px);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-16);
+  letter-spacing: -0.02em;
+  line-height: var(--line-height-tight);
+}
+
+.hero-tagline {
+  font-size: clamp(18px, 3vw, 24px);
+  color: var(--light-blue);
+  margin-bottom: var(--space-32);
+  font-weight: var(--font-weight-normal);
+}
+
+.hero-description {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-32);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-48);
+  font-size: var(--font-size-base);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-16);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: var(--space-16) var(--space-32);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: all var(--duration-normal) var(--ease-standard);
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--light-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-48);
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+
+.scroll-indicator svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  opacity: 0.7;
+}
+
+/* Sections */
+.section {
+  padding: var(--space-120) var(--space-32);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-16);
+  text-align: center;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--space-64);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* About Section */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-64);
+  align-items: center;
+}
+
+.about-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  color: var(--color-primary);
+  box-shadow: var(--shadow-xl);
+}
+
+.about-content h3 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-16);
+  color: var(--color-text);
+}
+
+.about-content p {
+  font-size: var(--font-size-md);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-24);
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-16);
+  margin-top: var(--space-32);
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+}
+
+.highlight-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.highlight-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+/* Experience Section */
+.experience-grid {
+  display: grid;
+  gap: var(--space-32);
+}
+
+.experience-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  border: 1px solid var(--color-card-border);
+  transition: all var(--duration-normal) var(--ease-standard);
+  position: relative;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-primary);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.experience-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-24);
+  flex-wrap: wrap;
+  gap: var(--space-16);
+}
+
+.experience-title {
+  flex: 1;
+  min-width: 250px;
+}
+
+.experience-title h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.experience-title .organization {
+  font-size: var(--font-size-md);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.experience-meta {
+  text-align: right;
+}
+
+.experience-dates {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.experience-location {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  justify-content: flex-end;
+}
+
+.experience-highlights {
+  list-style: none;
+}
+
+.experience-highlights li {
+  padding-left: var(--space-32);
+  margin-bottom: var(--space-12);
+  position: relative;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.experience-highlights li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Skills Section */
+.skills-container {
+  display: grid;
+  gap: var(--space-48);
+}
+
+.skills-category {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  border: 1px solid var(--color-card-border);
+}
+
+.skills-category h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-32);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.category-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-primary);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-24);
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-name {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.skill-level {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.skill-bar {
+  height: 8px;
+  background: var(--color-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--light-blue));
+  border-radius: var(--radius-full);
+  transition: width 1s var(--ease-standard);
+}
+
+/* Education Section */
+.education-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-48);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-md);
+}
+
+.education-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+  margin-bottom: var(--space-32);
+  flex-wrap: wrap;
+}
+
+.education-logo {
+  width: 80px;
+  height: 80px;
+  background: var(--color-bg-1);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.education-title h3 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.education-degree {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.education-meta {
+  display: flex;
+  gap: var(--space-32);
+  margin-bottom: var(--space-32);
+  flex-wrap: wrap;
+}
+
+.education-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--color-text-secondary);
+}
+
+.education-meta-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+}
+
+.education-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-32);
+}
+
+.education-section h4 {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-16);
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+}
+
+.education-section ul {
+  list-style: none;
+}
+
+.education-section li {
+  padding-left: var(--space-24);
+  margin-bottom: var(--space-12);
+  position: relative;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.education-section li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 20px;
+}
+
+/* Contact Section */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-64);
+}
+
+.contact-info h3 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-24);
+  color: var(--color-text);
+}
+
+.contact-info p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-32);
+  line-height: 1.6;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--color-bg-1);
+  border-radius: var(--radius-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-text {
+  flex: 1;
+}
+
+.contact-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.contact-value {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.contact-value a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.contact-value a:hover {
+  color: var(--color-primary);
+}
+
+.contact-form {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  border: 1px solid var(--color-card-border);
+}
+
+.form-group {
+  margin-bottom: var(--space-24);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-8);
+  color: var(--color-text);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-error {
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+  margin-top: var(--space-8);
+}
+
+.form-success {
+  padding: var(--space-16);
+  background: var(--color-bg-3);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: var(--radius-base);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+  text-align: center;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: var(--space-16);
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  border: none;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.footer {
+  background: var(--primary-dark);
+  color: white;
+  padding: var(--space-64) var(--space-32) var(--space-32);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-32);
+  margin-bottom: var(--space-32);
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.footer-link:hover {
+  color: white;
+}
+
+.footer-copyright {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--font-size-sm);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-32);
+  right: var(--space-32);
+  width: 50px;
+  height: 50px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--duration-normal) var(--ease-standard);
+  box-shadow: var(--shadow-lg);
+  z-index: 999;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-4px);
+}
+
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.8s var(--ease-standard) forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: var(--color-surface);
+    flex-direction: column;
+    padding: var(--space-120) var(--space-32);
+    box-shadow: var(--shadow-xl);
+    transition: right var(--duration-normal) var(--ease-standard);
+    align-items: flex-start;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-32);
+  }
+
+  .about-image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-header {
+    flex-direction: column;
+  }
+
+  .experience-meta {
+    text-align: left;
+  }
+
+  .experience-location {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: var(--space-64) var(--space-20);
+  }
+
+  .nav-container {
+    padding: 0 var(--space-20);
+  }
+
+  .hero {
+    padding: var(--space-20);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-details {
+    grid-template-columns: 1fr;
+  }
+
+  .back-to-top {
+    bottom: var(--space-20);
+    right: var(--space-20);
+  }
+}
     </style>
 </head>
 <body>
-    <header>
-        <div class="hero-content">
-            <div class="hero-subtitle">Software & Campaigns</div>
-            <h1>Adam Gould</h1>
-            <p class="hero-tagline">
-                <span class="bridge-metaphor">Bridging technology and community impact</span> through thoughtful code, strategic operations, and interdisciplinary thinking.
-            </p>
-            <div class="cta-buttons">
-                <a href="#experience" class="cta-primary">View My Resume</a>
-                <a href="#contact" class="cta-secondary">Let's Connect</a>
-            </div>
-            <div class="contact-quick">
-                <a href="mailto:Adam@KohlGould.com">Adam@KohlGould.com</a>
-                <a href="tel:617-909-6856">617-909-6856</a>
-            </div>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">AG</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
     </nav>
 
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-intro">
-                <p>I'm a Computer Science student at Brandeis University, driven by a belief that <strong>technology should serve communities</strong>.</p>
-                
-                <p>My organizing roots go back to high school, where I led climate justice campaigns, coordinated phone banks for civil rights initiatives, and helped build youth political movements in Boston. That early work taught me that <strong>movements need more than passion—they need infrastructure, data, and digital tools that work</strong>.</p>
-                
-                <p>Since then, my path has taken me from redesigning websites for academic institutes to drafting memos for presidential campaigns, from managing data systems for nonprofits to supervising kosher dining operations on campus. These diverse experiences have taught me that the most meaningful solutions emerge when we <strong>bridge technical expertise with deep community understanding</strong>.</p>
-                
-                <p>Whether I'm writing code, coordinating political operations, or leading campus clubs, I approach every challenge with the same commitment: <strong>build tools and systems that create real impact for real people</strong>.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-name">Adam Gould</h1>
+            <p class="hero-tagline">Computer Science Student | Digital Operations | Software Developer</p>
+            <p class="hero-description">
+                Bridging technology and impact through software development, digital operations, and community engagement.
+            </p>
+            <div class="hero-location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Cambridge, MA &amp; New York, NY</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#experience" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">A blend of technical expertise and diverse professional experience</p>
+        <div class="about-container">
+            <div class="about-image">
+                👤
+            </div>
+            <div class="about-content">
+                <h3>Hello! I'm Adam.</h3>
+                <p>
+                    I'm a Computer Science student at Brandeis University with a passion for technology, digital operations, and creating meaningful impact through software. My diverse background spans web development, political operations, and software systems management. I bring a unique blend of technical expertise and interpersonal skills, having worked on everything from redesigning organizational websites to coordinating high-stakes political events.
+                </p>
+                <p>
+                    As Vice President of the Brandeis Orthodox Organization, I balance my technical pursuits with community leadership and engagement. I'm driven by the intersection of technology and real-world impact, constantly seeking opportunities to leverage my skills in meaningful ways.
+                </p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <svg class="highlight-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        <span class="highlight-text">Software Development &amp; Web Design</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg class="highlight-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span class="highlight-text">Political Operations &amp; Event Coordination</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg class="highlight-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                        <span class="highlight-text">GPA: 3.612 at Brandeis University</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg class="highlight-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                        <span class="highlight-text">VP of Brandeis Orthodox Organization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">My professional journey across technology, politics, and digital operations</p>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>Digital Operations Intern</h3>
+                        <p class="organization">Princeton Institute for Hasidic Thought</p>
+                    </div>
+                    <div class="experience-meta">
+                        <p class="experience-dates">May 2025 – September 2025</p>
+                        <p class="experience-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Princeton, NJ
+                        </p>
+                    </div>
+                </div>
+                <ul class="experience-highlights">
+                    <li>Redesigned and deployed the organization's website, improving usability and visual design</li>
+                    <li>Contributed to digital brand identity development by providing design and technical input</li>
+                    <li>Coordinated logistics and provided on-site support for an intensive retreat</li>
+                </ul>
             </div>
 
-            <div class="skills-matrix">
-                <div class="skill-card">
-                    <div class="skill-icon">💻</div>
-                    <h3>Technical Foundations</h3>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>Political Assistant</h3>
+                        <p class="organization">Harris for President - New Hampshire Democratic Coordinated Campaign</p>
+                    </div>
+                    <div class="experience-meta">
+                        <p class="experience-dates">May 2024 – November 2024</p>
+                        <p class="experience-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Manchester, NH
+                        </p>
+                    </div>
+                </div>
+                <ul class="experience-highlights">
+                    <li>Drafted memos for President Biden, V.P. Harris, senators, &amp; other key surrogates</li>
+                    <li>Planned and coordinated events, led on-site teams</li>
+                    <li>Cultivated relationships with hundreds of elected officials &amp; key party activists</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>Special Projects Coordinator</h3>
+                        <p class="organization">Central Square Business Improvement District</p>
+                    </div>
+                    <div class="experience-meta">
+                        <p class="experience-dates">March 2023 – August 2023</p>
+                        <p class="experience-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Cambridge, MA
+                        </p>
+                    </div>
+                </div>
+                <ul class="experience-highlights">
+                    <li>Managed and optimized office technology systems and digital workflows</li>
+                    <li>Developed relationships with local small businesses as community liaison</li>
+                    <li>Provided on-site technical support for events</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>Software Operations Associate</h3>
+                        <p class="organization">March On</p>
+                    </div>
+                    <div class="experience-meta">
+                        <p class="experience-dates">June 2021 – September 2021</p>
+                        <p class="experience-location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Remote
+                        </p>
+                    </div>
+                </div>
+                <ul class="experience-highlights">
+                    <li>Evaluated and recommended software to improve operational efficiency</li>
+                    <li>Managed data systems, ensuring accuracy and accessibility</li>
+                    <li>Streamlined workflows through cloud-based productivity tools</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">Technical proficiency and professional capabilities</p>
+        <div class="skills-container">
+            <div class="skills-category">
+                <h3>
+                    <svg class="category-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    Programming Languages
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="90"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>
+                    <svg class="category-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Technical Skills
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Web Design/Development</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Software Evaluation</span>
+                            <span class="skill-level">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Data Systems Management</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Digital Workflows</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="85"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>
+                    <svg class="category-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Professional Skills
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Event Coordination</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Project Management</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Stakeholder Relations</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Political Operations</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-level="85"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic background and campus involvement</p>
+        <div class="education-card">
+            <div class="education-header">
+                <div class="education-logo">BU</div>
+                <div class="education-title">
+                    <h3>Brandeis University</h3>
+                    <p class="education-degree">Bachelor's in Computer Science</p>
+                </div>
+            </div>
+            <div class="education-meta">
+                <div class="education-meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Expected May 2027</span>
+                </div>
+                <div class="education-meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Waltham, MA</span>
+                </div>
+                <div class="education-meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    <span>GPA: 3.612</span>
+                </div>
+            </div>
+            <div class="education-details">
+                <div class="education-section">
+                    <h4>Campus Activities</h4>
                     <ul>
-                        <li>Java & Python Development</li>
-                        <li>Web Design & Deployment</li>
-                        <li>Data Systems Management</li>
-                        <li>Software Evaluation</li>
-                        <li>Digital Operations</li>
+                        <li>Vice President of the Brandeis Orthodox Organization</li>
                     </ul>
                 </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🤝</div>
-                    <h3>Community & Strategy</h3>
+                <div class="education-section">
+                    <h4>Campus Jobs</h4>
                     <ul>
-                        <li>Project Coordination</li>
-                        <li>Stakeholder Relations</li>
-                        <li>Political Operations</li>
-                        <li>Event Management</li>
-                        <li>Nonprofit Leadership</li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🌉</div>
-                    <h3>Bridging Disciplines</h3>
-                    <ul>
-                        <li>CS + Humanities Thinking</li>
-                        <li>Tech Ethics & Impact</li>
-                        <li>Digital Brand Development</li>
-                        <li>Cross-Functional Teams</li>
-                        <li>Solutions-Focused Design</li>
+                        <li>Supervise Dining Hall to ensure compliance with Kosher Law</li>
+                        <li>Monitor Art Studio to assist students using carpentry equipment</li>
                     </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="experience">
-            <h2>Work Experience</h2>
-            
-            <div class="experience-card">
-                <div class="experience-header">
-                    <div class="experience-title">Digital Operations Intern</div>
-                    <div class="experience-org">Princeton Institute for Hasidic Thought</div>
-                    <div class="experience-meta">
-                        <span>📍 Princeton, NJ</span>
-                        <span>📅 May 2025 – September 2025</span>
-                    </div>
-                </div>
-                <ul>
-                    <li>Redesigned and deployed the organization's website, improving usability and visual design to better serve academic and community audiences</li>
-                    <li>Contributed to digital brand identity development by providing design and technical input on visual style, layout, and online presence</li>
-                    <li>Coordinated logistics and provided on-site support for an intensive retreat serving the institute's translation fellowship</li>
-                </ul>
-            </div>
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">I'd love to hear from you! Let's connect and discuss opportunities.</p>
+        <div class="contact-container">
+            <div class="contact-info">
 
-            <div class="experience-card">
-                <div class="experience-header">
-                    <div class="experience-title">Political Assistant</div>
-                    <div class="experience-org">Harris for President - New Hampshire Democratic Coordinated Campaign</div>
-                    <div class="experience-meta">
-                        <span>📍 Manchester, NH</span>
-                        <span>📅 May 2024 – November 2024</span>
+                <h3>Contact Information</h3>
+                <p>Feel free to reach out through any of these channels. I'm always open to discussing new projects, opportunities, or just having a conversation about technology and innovation.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value"><a href="mailto:AKohlGould@gmail.com">AKohlGould@gmail.com</a></div>
+                        </div>
                     </div>
-                </div>
-                <ul>
-                    <li>Drafted memos for President Biden, V.P. Harris, senators, and other key surrogates for New Hampshire travel, ensuring accurate information and strategic messaging</li>
-                    <li>Planned and coordinated high-stakes events, leading on-site teams through complex logistical challenges</li>
-                    <li>Cultivated and maintained relationships with hundreds of elected officials and key party activists across the state</li>
-                    <li>Managed the volunteer-exempt mail program and ensured compliance with federal campaign regulations</li>
-                    <li>Worked closely with the data team to ensure accurate reporting and strategic decision-making</li>
-                </ul>
-            </div>
-
-            <div class="experience-card">
-                <div class="experience-header">
-                    <div class="experience-title">Special Projects Coordinator</div>
-                    <div class="experience-org">Central Square Business Improvement District</div>
-                    <div class="experience-meta">
-                        <span>📍 Cambridge, MA</span>
-                        <span>📅 March 2023 – August 2023</span>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value"><a href="tel:617-909-6856">617-909-6856</a></div>
+                        </div>
                     </div>
-                </div>
-                <ul>
-                    <li>Managed and optimized office technology systems, troubleshooting software and hardware issues to ensure smooth digital workflows for staff</li>
-                    <li>Developed and strengthened relationships with local small businesses, serving as a liaison between business owners and the BID to support community engagement and economic growth</li>
-                    <li>Provided on-site technical support to ensure smooth execution of community events</li>
-                </ul>
-            </div>
-
-            <div class="experience-card">
-                <div class="experience-header">
-                    <div class="experience-title">Software Operations Associate</div>
-                    <div class="experience-org">March On</div>
-                    <div class="experience-meta">
-                        <span>📍 Remote</span>
-                        <span>📅 June 2021 – September 2021</span>
-                    </div>
-                </div>
-                <ul>
-                    <li>Evaluated and recommended software solutions to improve operational efficiency and digital collaboration across the nonprofit organization</li>
-                    <li>Managed data systems, ensuring accuracy and accessibility for staff needs while maintaining data integrity</li>
-                    <li>Provided technical and logistical support for the planning and execution of a large-scale advocacy event</li>
-                    <li>Streamlined administrative workflows through the strategic use of cloud-based productivity and project management tools</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-highlight">
-                <h3>Bachelor of Arts</h3>
-                <div class="education-subtitle">Double Major: Computer Science & Near Eastern and Judaic Studies</div>
-                <div class="education-details">
-                    <div class="education-detail">
-                        <strong>University</strong>
-                        <span>Brandeis University</span>
-                    </div>
-                    <div class="education-detail">
-                        <strong>Location</strong>
-                        <span>Waltham, MA</span>
-                    </div>
-                    <div class="education-detail">
-                        <strong>Graduation</strong>
-                        <span>May 2027</span>
-                    </div>
-                    <div class="education-detail">
-                        <strong>GPA</strong>
-                        <span>3.612</span>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Location</div>
+                            <div class="contact-value">Cambridge, MA &amp; New York, NY</div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <form class="contact-form" id="contactForm">
+                <form action="https://formspree.io/f/mblqjwbk" method="POST">
+                <div id="formSuccess" class="form-success" style="display: none;">
+                    Thank you for your message! I'll get back to you soon.
+                </div>
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Your name" required>
+                    <div class="form-error" id="nameError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="your.email@example.com" required>
+                    <div class="form-error" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" id="subject" class="form-input" placeholder="What's this about?" required>
+                    <div class="form-error" id="subjectError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" class="form-textarea" placeholder="Your message..." required></textarea>
+                    <div class="form-error" id="messageError"></div>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 1.5rem; margin-top: 2rem;">Campus Leadership & Involvement</h3>
-            <div class="campus-grid">
-                <div class="campus-card">
-                    <h4>Vice President</h4>
-                    <p>Brandeis Orthodox Organization — Leading programming, community building, and advocacy for Orthodox Jewish students on campus</p>
-                </div>
-                <div class="campus-card">
-                    <h4>Dining Hall Supervisor</h4>
-                    <p>Ensuring strict compliance with Kosher Law and dietary standards while managing daily operations</p>
-                </div>
-                <div class="campus-card">
-                    <h4>Art Studio Monitor</h4>
-                    <p>Providing technical assistance and safety oversight for students using carpentry and fabrication equipment</p>
-                </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about" class="footer-link">About</a>
+                <a href="#experience" class="footer-link">Experience</a>
+                <a href="#skills" class="footer-link">Skills</a>
+                <a href="#education" class="footer-link">Education</a>
+                <a href="#contact" class="footer-link">Contact</a>
             </div>
-        </section>
-
-        <section id="contact">
-            <h2>Let's Connect</h2>
-            <div class="contact-box">
-                <p>I'm always interested in conversations about technology, community impact, and opportunities to collaborate on meaningful projects. Whether you're looking for technical expertise, strategic thinking, or someone who bridges both worlds — let's talk.</p>
-                
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <span>Email</span>
-                        <a href="mailto:Adam@KohlGould.com">Adam@KohlGould.com</a>
-                    </div>
-                    <div class="contact-method">
-                        <span>Phone</span>
-                        <a href="tel:617-909-6856">617-909-6856</a>
-                    </div>
-                </div>
-
-                <div class="cta-buttons" style="justify-content: center; margin-top: 2.5rem;">
-                    <a href="mailto:Adam@KohlGould.com" class="cta-primary">Send Me a Message</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Adam Gould. Bridging technology and community, one project at a time.</p>
-        <p style="margin-top: 1rem; opacity: 0.7;">Cambridge, MA & New York, NY</p>
+            <p class="footer-copyright">© 2025 Adam Gould. All rights reserved.</p>
+        </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
     <script>
-        // Smooth scrolling for navigation
+        // Navigation functionality
+        const nav = document.getElementById('nav');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const backToTop = document.getElementById('backToTop');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        
+        // Sticky navigation on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                nav.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
+            }
+            
+            // Update active nav link
+            updateActiveNavLink();
+        });
+        
+        // Hamburger menu toggle
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scroll for all anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
+        });
+        
+        // Back to top button
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll indicator
+        scrollIndicator.addEventListener('click', () => {
+            document.getElementById('about').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        // Update active nav link based on scroll position
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('.section, .hero');
+            const scrollPos = window.scrollY + 200;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    
+                    // Animate skill bars
+                    if (entry.target.classList.contains('skills-category')) {
+                        animateSkillBars(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observe sections
+        document.querySelectorAll('.section, .experience-card, .skills-category').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Animate skill bars
+        function animateSkillBars(container) {
+            const skillBars = container.querySelectorAll('.skill-bar-fill');
+            skillBars.forEach(bar => {
+                const level = bar.getAttribute('data-level');
+                setTimeout(() => {
+                    bar.style.width = level + '%';
+                }, 100);
+            });
+        }
+        
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Clear previous errors
+            document.querySelectorAll('.form-error').forEach(error => {
+                error.textContent = '';
+            });
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            let hasError = false;
+            
+            // Validate form
+            if (name.length < 2) {
+                document.getElementById('nameError').textContent = 'Please enter a valid name';
+                hasError = true;
+            }
+            
+            if (!isValidEmail(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email';
+                hasError = true;
+            }
+            
+            if (subject.length < 3) {
+                document.getElementById('subjectError').textContent = 'Subject is too short';
+                hasError = true;
+            }
+            
+            if (message.length < 10) {
+                document.getElementById('messageError').textContent = 'Message must be at least 10 characters';
+                hasError = true;
+            }
+            
+            if (!hasError) {
+                // Show success message
+                formSuccess.style.display = 'block';
+                contactForm.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formSuccess.style.display = 'none';
+                }, 5000);
+            }
+        });
+        
+        // Email validation
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Initialize skill bars to 0 width
+        document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+            bar.style.width = '0%';
         });
     </script>
 </body>
